@@ -14,7 +14,7 @@ The relevant data sets
 *	Landcover data (2020): https://maps.dea.ga.gov.au/
 *	Flood stages: https://www.ses.nsw.gov.au/hawkesbury-nepean-floods
 
-are downloaded and reprojected in QGIS to EPSG:32656, the projection of the Landsat satellite image. To reduce computing time and only focus on the specific area, the layers are clipped to the study area. The landcover layer needs to be converted to a vector file for further calculations/analysis. It is therefore first polygonized and then dissolved, to only have one row in the attribute table representing each class. The two flood stage layers were georeferenced before and outline contours are derived, which will be transformed to polygons.
+are downloaded and ""reprojected"" in QGIS to EPSG:32656, the projection of the Landsat satellite image. To reduce computing time and only focus on the specific area, the layers are clipped to the study area. The landcover layer needs to be converted to a vector file for further calculations/analysis. It is therefore first polygonized and then dissolved, to only have one row in the attribute table representing each class. The two flood stage layers were georeferenced before and outline contours are derived, which will be transformed to polygons.
 
 ## Risk Map
 The aim of mapping flood risk is to assess and display the susceptibility of an area become flooded. This allows, for instance, to indicate who or what will be affected and to which degree of probability. 
