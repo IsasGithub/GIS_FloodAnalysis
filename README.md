@@ -25,7 +25,7 @@ For a flood susceptibility analysis, many factors, also including hydrological d
 *	Distance to River: Areas close to waterways and -bodies are more likely to inundation
 *	Landcover: different landcover types have different permeability levels. It affects how quickly the water infiltrates
 
-The DEM can be used for the risk analysis as it is.
+The DEM and the landcover data can be used for the risk analysis as they are.
 The slope is calculated in ArcGIS Pro with the `slope` tool, which identifies the elevation change for each pixel. 
 The distance to river is calculated with the following steps:
 1.	`Fill`: removes small sinks and imperfections in the DEM to enhance the accuracy of further calculations
@@ -36,8 +36,6 @@ The distance to river is calculated with the following steps:
     Value = 10 or Value = 9 or Value = 8 or Value = 7
 6.	`Stream to Feature`: converts the linear network represented in the (Fill) raster to features
 7.	Distance to River: `Euclidean Distance`: calculates for each pixel the distance to the closest river feature
-
-The DEM and the landcover data can be used for the risk analysis as they are.
 
 The next step is to `reclassify` the four factors which sets them into an appropriate defined number of classes (five). 
 
