@@ -14,7 +14,7 @@ The relevant data sets
 *	Landcover data (2020): https://maps.dea.ga.gov.au/
 *	Flood stages: https://www.ses.nsw.gov.au/hawkesbury-nepean-floods
 
-are downloaded and `reprojected` in QGIS to EPSG:32656, the projection of the Landsat satellite image. To reduce computing time and only focus on the specific area, the layers are clipped to the study area. The landcover layer needs to be converted to a vector file for further calculations/analysis. It is therefore first polygonized and then dissolved, to only have one row in the attribute table representing each class. The two flood stage layers were georeferenced before and outline contours are derived, which will be transformed to polygons.
+are downloaded and `reprojected` in QGIS to EPSG:32656, the projection of the Landsat satellite image. To reduce computing time and only focus on the specific area, the layers are `clipped` to the study area. The landcover layer needs to be converted to a vector file for further analysis. It is therefore first `polygonized` and then `dissolved`, to only have one row in the attribute table representing each class. The two flood stage layers were `georeferenced` before and outline `contours` are derived, which will be transformed to polygons.
 
 ## Risk Map
 The aim of mapping flood risk is to assess and display the susceptibility of an area become flooded. This allows, for instance, to indicate who or what will be affected and to which degree of probability. 
@@ -26,22 +26,22 @@ For a flood susceptibility analysis, many factors, also including hydrological d
 *	Landcover: different landcover types have different permeability levels. It affects how quickly the water infiltrates
 
 The DEM can be used for the risk analysis as it is.
-The slope is calculated in ArcGIS Pro with the slope tool, which identifies the elevation change for each pixel. 
+The slope is calculated in ArcGIS Pro with the `slope` tool, which identifies the elevation change for each pixel. 
 The distance to river is calculated with the following steps:
-1.	Fill: removes small sinks and imperfections in the DEM to enhance the accuracy of further calculations
-2.	Flow Direction: calculates the direction of the water flow for each pixel to its downslope neighbour
-3.	Flow Accumulation: calculates the pixels contributing flow to each lower-lying pixel in the DEM
-4.	Stream Order: assigns an order to segments representing the position in the river network to later exclude smaller tributaries
-5.	Con: selects main channels based on the stream order with the expression:
+1.	`Fill`: removes small sinks and imperfections in the DEM to enhance the accuracy of further calculations
+2.	`Flow Direction`: calculates the direction of the water flow for each pixel to its downslope neighbour
+3.	`Flow Accumulation`: calculates the pixels contributing flow to each lower-lying pixel in the DEM
+4.	`Stream Order`: assigns an order to segments representing the position in the river network to later exclude smaller tributaries
+5.	`Con`: selects main channels based on the stream order with the expression:
     Value = 10 or Value = 9 or Value = 8 or Value = 7
-6.	Stream to Feature: converts the linear network represented in the (Fill) raster to features
-7.	Distance to River: Euclidean Distance: calculates for each pixel the distance to the closest river feature
+6.	`Stream to Feature`: converts the linear network represented in the (Fill) raster to features
+7.	Distance to River: `Euclidean Distance`: calculates for each pixel the distance to the closest river feature
 
 The DEM and the landcover data can be used for the risk analysis as they are.
 
-The next step is to reclassify the four factors which sets them into an appropriate defined number of classes (five). 
+The next step is to `reclassify` the four factors which sets them into an appropriate defined number of classes (five). 
 
-Finally, the Overlay tool Weighted Sum combines the reclassified factors into one map representing the overall flood risk. Each factor is assigned a weight depending on its relative importance in contributing to the flood risk. The factors have been weighted as follows:
+Finally, the Overlay tool `Weighted Sum` combines the reclassified factors into one map representing the overall flood risk. Each factor is assigned a weight depending on its relative importance in contributing to the flood risk. The factors have been weighted as follows:
 *	DEM: 35
 *	Slope: 35
 *	Distance to River: 20
@@ -60,9 +60,9 @@ The contours of the other flood stages are already extracted in the data preproc
 
 The Landcover is now intersected with each flood polygon, which will put both attribute tables together so that it is possible to calculate the fractions of the landcover classes within the polygon. 
 
-The calculations can be performed using the field calculator. First the total polygon area is calculated in a new field with the expression $area, as well as the area of each class within the polygon. Finally, the percentage of each affected landcover class is calculated by dividing the area of each class by the total area and multiplying the result with 100: 
+The calculations can be performed using the `field calculator`. First the total polygon area is calculated in a new field with the expression `$area`, as well as the area of each class within the polygon. Finally, the percentage of each affected landcover class is calculated by dividing the area of each class by the total area and multiplying the result with 100: 
 
-(Class Area / Total Area) * 100.
+`(Class Area / Total Area) * 100`
 
 The results are visualized with a proportional area chart. This type of diagram is a great way to show distribution proportional to each other within a total area. They will be created in the Python console for each flood stage using the following code (exemplarily for the flood in 2021): 
 
