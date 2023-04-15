@@ -107,7 +107,7 @@ The resulting flood risk map shows, that within the extent of the 2021 flood, th
 
 ![riskmap](Figures/FloodRiskMap.png)
 
-The results of the landcover analysis display the percentage of the different landcover classes represented in each polygon, to see how strongly each class is affected by the flood / inundated in each flood stage. It is clearly noticeable that the classes “Cultivated Terrestrial Vegetation” and “Natural Terrestrial Vegetation”, are the most affected at each stage of flooding. Fortunately, the population is only affected by a flood with a fairly low probability of occurrence. In the flood of 2021, which is the subject of this project, the built-up area was mostly left unscathed. This means that the flood prevention measures, like not building houses in high-risk areas close to the river, are successful.
+The results of the landcover analysis display the percentage of the different landcover classes represented in each polygon, to see how strongly each class is affected by each flood stage. It is clearly noticeable that the classes “Cultivated Terrestrial Vegetation” and “Natural Terrestrial Vegetation”, are the most affected at each stage of flooding. Fortunately, the population is only affected by a flood with a fairly low probability of occurrence. In the flood of 2021, which is the subject of this project, the built-up area was mostly left unscathed. This means that the flood prevention measures, like not building houses in high-risk areas close to the river, are successful.
 
 ![Diagram](Figures/LC_FloodStages.png)
 
