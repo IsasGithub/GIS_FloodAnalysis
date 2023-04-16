@@ -1,7 +1,7 @@
 # Flood Analysis in Australia – Flood Risk Mapping and Calculation of Affected Landcover Classes
 
 ## Introduction
-In this project, risk levels of the area being exposed to flood were analysed as well as the percentage of affection of the landcover classes for different flood stages. These analyses were developed using QGIS and ArcGIS Pro (ESRI) to utilize both an open source and a licenced software. The aim is to identify how high the risk of flood exposure is in different parts of the area and to determine which landcover classes are how much exposed in percent to the actual flood in 2021 and two other flood stages.
+In this project, risk levels of the area being exposed to flooding were analysed as well as the percentage of affection of the landcover classes for different flood stages. These analyses were developed using QGIS and ArcGIS Pro (ESRI) to utilize both an open source and a licenced software. The aim is to identify how high the risk of flood exposure is in different parts of the area and to determine the extent of exposure [%] of the landcover classes to the actual flood in 2021 and two other flood stages.
 
 ## Methodology - Workflow 
 The diagram below shows the performed workflow. 
@@ -11,8 +11,8 @@ The diagram below shows the performed workflow.
 The relevant data sets 
 * Landsat satellite image showing the flood: USGS Earth Explorer (https://earthexplorer.usgs.gov/)
 * DEM-SRTM: USGS Earth Explorer (https://earthexplorer.usgs.gov/)
-*	Landcover data (2020): https://maps.dea.ga.gov.au/
-*	Flood stages: https://www.ses.nsw.gov.au/hawkesbury-nepean-floods
+* Landcover data (2020): https://maps.dea.ga.gov.au/
+* Flood stages: https://www.ses.nsw.gov.au/hawkesbury-nepean-floods
 
 are downloaded and `reprojected` in QGIS to EPSG:32656, the projection of the Landsat satellite image. To reduce computing time and only focus on the specific area, the layers are `clipped` to the study area. The landcover layer needs to be converted to a vector file for further analysis. It is therefore first `polygonized` and then `dissolved`, to only have one row in the attribute table representing each class. The two flood stage layers were `georeferenced` before and outline `contours` are derived, which will be transformed to polygons.
 
@@ -103,7 +103,7 @@ plt.show()
 
 ```
 ## Results
-The resulting flood risk map shows, that within the extent of the 2021 flood, the average flood risk level is mainly moderate, with some areas with a high risk. There are only rare spots where the risk of inundation is very high, but on the other hand, there is not a single pixel in the entire polygon with a (very) low level of risk.
+The resulting flood risk map shows that within the extent of the 2021 flood, the average flood risk level is mainly moderate, with some areas with a high risk. There are only rare spots where the risk of inundation is very high, but on the other hand, there is not a single pixel in the entire polygon with a (very) low level of risk.
 
 ![riskmap](Figures/FloodRiskMap.png)
 
